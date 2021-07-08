@@ -4,10 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,21 +14,22 @@ import java.util.Date;
 public class UserEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idx;
 
-    @Column
+    @Column(length = 30, nullable = false)
     private String email;
 
-    @Column
+    @Column(length = 50, nullable = false)
     private String password;
 
     @Column
     private Date joinDate;
 
-    @Column
+    @Column(length = 1)
     private String softDelete;
 
-    @Column
+    @Column(length = 1)
     private String baned;
 
     @Builder
@@ -40,7 +38,7 @@ public class UserEntity {
         this.password = password;
         this.joinDate = joinDate;
         this.softDelete = softDelete;
-        this.baned =baned;
+        this.baned = baned;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.restapi.restapi.User;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,6 @@ public class UserDto {
     private String email;
     private String password;
     private Date joinDate;
-    private Boolean softDelete;
-    private Boolean baned;
+    private String softDelete;
+    private String baned;
 }
